@@ -40,7 +40,7 @@ export const StoreModal = () => {
 
       const response = await axios.post("/api/stores", values);
 
-      toast.success("Store created!");
+      window.location.assign(`/${response.data.id}`);
     } catch (error) {
       toast.error("Sommeting went wrong!");
     } finally {
@@ -50,7 +50,7 @@ export const StoreModal = () => {
 
   return (
     <Modal
-      title="Cerate store"
+      title="Create store"
       description="Add a new store to manage products and categories"
       isOpen={storeModal.isOpen}
       onClose={storeModal.onClose}
