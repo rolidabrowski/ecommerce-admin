@@ -9,7 +9,7 @@ const Navbar = async () => {
   const user = await currentUser();
 
   if (!user) {
-    redirect("/sign-in");
+    redirect("/auth/login");
   }
 
   const stores = await db.store.findMany({
