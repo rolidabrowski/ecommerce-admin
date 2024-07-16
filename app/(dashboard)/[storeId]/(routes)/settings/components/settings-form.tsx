@@ -26,15 +26,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { ApiAlert } from "@/components/ui/api-alert";
 
-interface SettingsFormProps {
-  initialData: Store;
-}
-
 const formSchema = z.object({
   name: z.string().min(1),
 });
 
 type SettingsFormValues = z.infer<typeof formSchema>;
+
+interface SettingsFormProps {
+  initialData: Store;
+}
 
 export const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
   const params = useParams();
