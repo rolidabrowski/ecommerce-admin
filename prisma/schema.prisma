@@ -75,10 +75,10 @@ model TwoFactorToken {
 }
 
 model TwoFactorConfirmation {
-  id     String   @id @default(cuid())
+  id     String @id @default(cuid())
 
   userId String
-  user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId])
 }
@@ -93,13 +93,14 @@ updatedAt  DateTime     @updatedAt
 }
 
 model Billboard {
-id        String    @id @default(uuid())
-storeId   String
-store     Store     @relation("StoreToBillboard", fields: [storeId], references: [id])
-label     String
-imageUrl  String
-createdAt  DateTime     @default(now())
-updatedAt  DateTime     @updatedAt
+id          String       @id @default(uuid())
+label       String
+imageUrl    String
+createdAt   DateTime     @default(now())
+updatedAt   DateTime     @updatedAt
+
+storeId String
+store   Store @relation("StoreToBillboard", fields: [storeId], references: [id])
 
 @@index([storeId])
 }

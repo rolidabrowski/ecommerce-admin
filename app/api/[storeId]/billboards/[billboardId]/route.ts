@@ -70,7 +70,7 @@ export async function PATCH(
 
     const billboard = await db.billboard.updateMany({
       where: {
-        id: params.storeId,
+        id: params.billboardId,
       },
       data: {
         label,
@@ -113,7 +113,7 @@ export async function DELETE(
 
     const billboard = await db.billboard.deleteMany({
       where: {
-        id: params.storeId,
+        id: params.billboardId,
       },
     });
 
