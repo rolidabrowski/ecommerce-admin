@@ -2,7 +2,6 @@
 
 import { useParams } from "next/navigation";
 
-import { publicRoutes } from "@/routes";
 import { useOrigin } from "@/hooks/use-origin";
 import { ApiAlert } from "@/components/ui/api-alert";
 
