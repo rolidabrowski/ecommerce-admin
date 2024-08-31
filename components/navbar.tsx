@@ -1,4 +1,4 @@
-import { UserButton } from "./auth/user-button";
+import { UserButton } from "../app/(auth)/components/user-button";
 import { MainNav } from "@/components/main-nav";
 import StoreSwitcher from "@/components/store-switcher";
 import { currentUser } from "@/lib/auth";
@@ -9,7 +9,7 @@ const Navbar = async () => {
   const user = await currentUser();
 
   if (!user) {
-    redirect("/auth/login");
+    redirect("/login");
   }
 
   const stores = await db.store.findMany({

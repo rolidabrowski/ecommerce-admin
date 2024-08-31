@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { LoginForm } from "@/components/auth/login-form";
+import { LoginForm } from "@/app/(auth)/components/login-form";
 
 interface LoginButtonProps {
   children: React.ReactNode;
@@ -19,7 +19,7 @@ export const LoginButton: React.FC<LoginButtonProps> = ({
   const router = useRouter();
 
   const onClick = () => {
-    router.push("/auth/login");
+    router.push("/login");
   };
 
   if (mode === "modal") {
@@ -34,7 +34,10 @@ export const LoginButton: React.FC<LoginButtonProps> = ({
   }
 
   return (
-    <span onClick={onClick} className="cursor-pointer">
+    <span
+      onClick={onClick}
+      className="cursor-pointer"
+    >
       {children}
     </span>
   );
