@@ -103,7 +103,6 @@ export const ProductForm: React.FC<ProductFormProps> = ({
           data
         );
       } else {
-        console.log(data);
         await axios.post(`/api/${params.storeId}/products`, data);
       }
       router.push(`/${params.storeId}/products`);
@@ -169,12 +168,10 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 <FormLabel>Images</FormLabel>
                 <FormControl>
                   <ImageUpload
-                    value={(field.value || [])
-                      .filter(Boolean)
-                      .map((image) => image.url)}
+                    value={field.value.map((image) => image.url)}
                     disabled={loading}
                     onChange={(url) =>
-                      field.onChange([...(field.value || []), { url }])
+                      field.onChange([...field.value, { url }])
                     }
                     onRemove={(url) =>
                       field.onChange([
